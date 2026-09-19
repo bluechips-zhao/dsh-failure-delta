@@ -43,6 +43,19 @@
 - 文件归属：仅 I:\\Codex\\dsh-failure-delta 的 Git 提交元数据和本协作记录。
 - 当前待解决问题：GitHub noreply 邮箱未由用户单独指定，本轮按 `bluechips@users.noreply.github.com` 处理；远端目标仍未确认。
 
+## COL-20260919-005 — 修正本地提交作者元数据
+
+- 状态：COMPLETED
+- 时间（Asia/Shanghai）：2026-09-19T09:02:46+08:00
+- 时间（UTC）：2026-09-19T01:02:46Z
+- 执行者：Codex/root
+- 关联记录：COL-20260919-005 STARTED
+- 做了什么：重写本地三条提交的 author/committer 为 `bluechips <bluechips@users.noreply.github.com>`；未配置 remote，未执行 push。
+- 解决了什么：移除此前的 `Codex <codex@localhost>` 提交身份，当前历史可按用户指定 GitHub 名称继续做 push 前检查。
+- 验证命令/退出码：`git rebase --root --exec ...` 0；`git log --format=...` 显示三条提交均为 bluechips；`git status --short --branch` 为空。
+- 未解决事项：noreply 邮箱是基于用户名的默认格式推定，若用户 GitHub 账号启用不同隐私邮箱，推送前仍可再 amend；GitHub remote、branch 和 push 授权仍待确认。
+- 下一步：等待用户确认远端目标和 push。
+
 ## COL-20260919-003 — 持续实施至 GitHub 推送前
 
 - 状态：STARTED
