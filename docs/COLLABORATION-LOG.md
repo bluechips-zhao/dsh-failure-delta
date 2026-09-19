@@ -116,6 +116,19 @@
 - 计划动作：更新 package 作者字段；保留当前 HEAD 的本地备份引用；重写本地提交 author/committer 元数据；使用 force-with-lease 更新公开远端；核验远端提交归属和工作区。
 - 风险边界：公开仓库提交历史会因作者元数据修正而改变，但文件内容和提交消息保持不变。
 
+## COL-20260919-010 — 统一 GitHub 作者身份完成
+
+- 状态：COMPLETED
+- 时间（Asia/Shanghai）：2026-09-19T09:44:18+08:00
+- 时间（UTC）：2026-09-19T01:44:18Z
+- 执行者：Codex/root
+- 关联记录：COL-20260919-010 STARTED
+- 做了什么：将 `package.json` 作者更新为 `bluechips-zhao`；以本地备份分支保留重写前 HEAD；重写并用 `--force-with-lease` 推送全部现有提交的 author/committer。
+- 解决了什么：公开仓库历史中的 9 个提交均已归属 GitHub 账号 `bluechips-zhao`；文件内容和提交消息保持不变。
+- 验证命令/退出码：`git push --force-with-lease origin main` 0；GitHub API 返回 `count=9`、唯一提交作者名 `bluechips-zhao`、唯一 GitHub 作者 `bluechips-zhao`；`git status --short --branch` 显示 `main...origin/main`。
+- 未解决事项：无本次作者归属阻塞；本地备份分支 `backup/pre-author-rewrite-20260919` 保留未推送。
+- 下一步：后续本地提交使用仓库级 Git 作者配置 `bluechips-zhao`，继续保持提交归属一致。
+
 ## COL-20260919-007 — GitHub 推送预检结果
 
 - 状态：BLOCKED
