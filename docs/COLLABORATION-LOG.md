@@ -1,0 +1,65 @@
+# 协作书
+
+本文件仅追加。每次实质工作必须有 STARTED 和对应 COMPLETED / BLOCKED / ABORTED 记录；纠错另追加 CORRECTION，不改历史。所有记录写明北京时间、UTC、执行者、目标、文件归属、做了什么、解决了什么、证据和剩余事项。
+
+## COL-20260919-004 — 持续推进至 GitHub 推送前
+
+- 状态：STARTED
+- 时间（Asia/Shanghai）：2026-09-19T00:29:55+08:00
+- 时间（UTC）：2026-09-18T16:29:55Z
+- 执行者：Codex/root
+- 关联记录：COL-20260919-003
+- 工作项：遵循项目文件继续推进实现与必要验证；减少重复和低价值测试；到达可推送 GitHub 但未推送的状态后请求用户确认。
+- 文件归属：仅 Codex/root 负责 I:\\Codex\\dsh-failure-delta；不修改其他项目、公共 profile 或远端。
+- 计划动作：先审计现状和文档缺口，再按最小证明集实施；未到推送确认点前不执行提交、推送、发布、安装或其他外部状态变更。
+- 当前待解决问题：上一轮记录仍显示项目处于 D0 文档阶段，源码、包和 D1/宿主证据待核实。
+- 未授权动作：GitHub 推送、npm 发布、公共 profile 安装、权限变更、删除及其他外部状态变更。
+
+## COL-20260919-003 — 持续实施至 GitHub 推送前
+
+- 状态：STARTED
+- 时间（Asia/Shanghai）：2026-09-19T00:28:38+08:00
+- 时间（UTC）：2026-09-18T16:28:38Z
+- 执行者：Codex/root
+- 关联记录：COL-20260919-002
+- 工作项：在不执行 GitHub 推送前提下，持续推进 dsh-failure-delta，从 D1 预检进入可实施核心与必要宿主边界，直到达到请求用户确认推送的状态。
+- 文件归属：Codex/root 负责 I:\\Codex\\dsh-failure-delta；不修改其他项目、公共 profile 或远端。
+- 计划动作：先核对完整冻结文档和官方 pinned 契约；实现可在本项目内安全完成的纯核心与最小宿主骨架；只执行能直接证明契约/回归/打包风险的验证，避免重复或低价值测试。
+- 当前待解决问题：项目尚无源码、package、Git 仓库或 D1 运行 probe；官方 Client/Remote/真实 Web/fresh profile/跨平台证据仍未取得。
+- 未授权动作：GitHub 推送、npm 发布、公共 profile 安装、权限变更、删除及其他外部状态变更。
+
+## COL-20260919-001 — 建立文档基线
+
+- 状态：STARTED
+- 时间（Asia/Shanghai）：2026-09-19T00:13:25+08:00
+- 时间（UTC）：2026-09-18T16:13:25Z
+- 执行者：Codex/root
+- 关联记录：无
+- 工作项：为 dsh-failure-delta 建立独立、可交接的 D0 项目文档集。
+- 文件归属：Codex/root 负责 I:\Codex\dsh-failure-delta 下所有本次新文档；不改其他项目。
+- 做了什么：开始官方在线契约和公开相邻项目预检，读取上一项目的协作/交接规则；创建项目根目录和 docs 目录。
+- 解决了什么：固定项目位置和“仅文档、不实现、不安装、不发布”的任务边界。
+- 证据：git ls-remote 官方仓库 HEAD 为 ddefc45fbc7f8e46dd73185e68295696d1297887；官方根版本为 0.1.6-alpha.2。
+- 剩余事项：补齐需求、架构、解析器、对比算法、数据/UI/隐私、测试、追踪和交接文档；运行文档一致性检查。
+- 未执行：源码实现、构建、单元测试、bundle 安装、Web/headless、Git 初始化、提交或远端发布。
+- 下一步：以官方公共接口为候选 seam，明确未知/截断/范围变化不得推导“修复”。
+
+## COL-20260919-002 — 文档基线完成
+
+- 状态：COMPLETED（仅 D0 文档工作）
+- 时间（Asia/Shanghai）：2026-09-19T00:26:53+08:00
+- 时间（UTC）：2026-09-18T16:26:53Z
+- 执行者：Codex/root
+- 关联记录：COL-20260919-001
+- 工作项：独立建立可实施、可验收、可继续交接的 dsh-failure-delta 文档集。
+- 文件归属：仅 I:\Codex\dsh-failure-delta 本次新建的 18 份 Markdown；其他项目未修改。
+- 做了什么：生成 README、AGENTS、CONTRIBUTING，以及项目、架构、技术、解析器、数据模型、UI、威胁模型、16 个 ADR、测试、追踪、创新性、官方基线、实现交接、验收和协作书；按官方 HEAD 重核契约，不沿用旧版本假设。
+- 解决了什么：固定被动错误变化看板定位；将完整可比/有限观察/不可比较、显式通过/诊断消失/未确认、旧报告/路径约束/并发/内存上限/重启清空写成执行规范；提供新对话可复制提示，明确接手者先 D1 而非猜接口。
+- 复核修正：统一查询工具候选名 failure_delta_query 与 overlapping-run 原因码；统一状态等级；明确 opt-in 预检允许有界等待且不能遗弃 I/O，默认零额外文件读取；补齐 RPC/摘录预算。
+- 官方证据：git ls-remote https://github.com/deepseek-ai/deepseek-harness.git HEAD 得到 ddefc45fbc7f8e46dd73185e68295696d1297887；读取固定 SHA 的官方工具/shell/filesystem/client/remote 文档；根声明 0.1.6-alpha.2、Node ^22.19.0 || >=24.0.0、pnpm@11.7.0。仅源码/文档事实，不是安装兼容证明。
+- 文档验证：通过 pwsh 内联只读脚本，以 Get-ChildItem、Get-Content、regex 与 Test-Path 校验文件、链接、围栏、需求与测试引用；退出码 0。结果：18 文件，42 FR/NFR 定义，42 唯一追踪行，72 唯一测试定义，问题 0。
+- 引用验证：第二个 pwsh 内联只读脚本检查 G/NG/ADR/T/AC 定义与引用，退出码 0。结果：6 目标、7 非目标、16 ADR、14 威胁、10 验收，未定义引用 0。
+- 验证边界：AC-001 仅文档结构 PASS；72 TP 全部为计划/NOT RUN。未把文字或静态检索称为产品可用。
+- 未执行：源码、package、依赖安装、typecheck/build/pack、单元/真实 runner/Host/PTC/Web/headless/fresh profile 测试、性能与安全审计、Git 初始化/提交、常用 profile 修改、GitHub/npm 发布。
+- 剩余事项：D1 证明真实 cwd/Session/PTC/runner schema、受约束报告读与外部 Client/Remote/导航；精确平台和版本支持尚未授予。检索无法保证市场/GitHub 无相似产品。
+- 下一步：用户授权实施后按 IMPLEMENTATION-HANDOFF 的 WP-0 开始；任何范围扩大、安装到环境、权限或发布动作单独确认。
