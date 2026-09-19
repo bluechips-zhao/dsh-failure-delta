@@ -129,6 +129,29 @@
 - 未解决事项：无本次作者归属阻塞；本地备份分支 `backup/pre-author-rewrite-20260919` 保留未推送。
 - 下一步：后续本地提交使用仓库级 Git 作者配置 `bluechips-zhao`，继续保持提交归属一致。
 
+## COL-20260919-011 — 复核 GitHub 贡献者归属
+
+- 状态：STARTED
+- 时间（Asia/Shanghai）：2026-09-19T09:46:17+08:00
+- 时间（UTC）：2026-09-19T01:46:17Z
+- 执行者：Codex/root
+- 关联记录：COL-20260919-010
+- 工作项：核实用户反馈的错误贡献者 `bluechips` 是否仍存在于公开仓库可达历史或远端引用。
+- 文件归属：仅 I:\\Codex\\dsh-failure-delta\\docs\\COLLABORATION-LOG.md。
+
+## COL-20260919-011 — 复核 GitHub 贡献者归属完成
+
+- 状态：COMPLETED
+- 时间（Asia/Shanghai）：2026-09-19T09:46:17+08:00
+- 时间（UTC）：2026-09-19T01:46:17Z
+- 执行者：Codex/root
+- 关联记录：COL-20260919-011 STARTED
+- 做了什么：查询 GitHub contributors API、远端 heads/tags 和本地所有引用；未修改源码。
+- 解决了什么：GitHub API 只返回 `bluechips-zhao`，远端只保留 `main`；旧的 `bluechips` 只在本地未推送备份分支 `backup/pre-author-rewrite-20260919` 中。
+- 验证命令/退出码：`gh api repos/.../contributors?anon=true` 0；`git ls-remote --heads --tags origin` 0；GitHub 当前可达提交作者唯一值为 `bluechips-zhao`。
+- 未解决事项：GitHub 网页贡献者统计可能暂时缓存旧结果；本地备份分支仍保留旧历史以便恢复，但未推送。
+- 下一步：提交并推送本复核记录，随后等待 GitHub 贡献者统计刷新。
+
 ## COL-20260919-007 — GitHub 推送预检结果
 
 - 状态：BLOCKED
