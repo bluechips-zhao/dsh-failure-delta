@@ -1,7 +1,7 @@
 {
   "name": "dsh-failure-delta",
   "version": "0.1.0",
-  "author": "bluechips",
+  "author": "bluechips-zhao",
   "private": true,
   "description": "Bounded, evidence-aware failure delta core for DeepSeek Harness integrations.",
   "type": "module",

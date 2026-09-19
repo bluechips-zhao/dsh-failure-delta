@@ -104,6 +104,18 @@
 - 未解决事项：无本次推送阻塞；Web/fresh profile/provider/PUBLISHED 等项目证据仍未获得，不因本次 GitHub 推送改变状态。
 - 下一步：将本次完成记录提交并推送到公开仓库。
 
+## COL-20260919-010 — 统一 GitHub 作者身份
+
+- 状态：STARTED
+- 时间（Asia/Shanghai）：2026-09-19T09:43:29+08:00
+- 时间（UTC）：2026-09-19T01:43:29Z
+- 执行者：Codex/root
+- 关联记录：COL-20260919-009
+- 工作项：按用户确认，将项目作者字段、现有 Git 提交以及后续提交统一为 GitHub 账号 `bluechips-zhao`。
+- 文件归属：仅 I:\\Codex\\dsh-failure-delta；源码内容不变。
+- 计划动作：更新 package 作者字段；保留当前 HEAD 的本地备份引用；重写本地提交 author/committer 元数据；使用 force-with-lease 更新公开远端；核验远端提交归属和工作区。
+- 风险边界：公开仓库提交历史会因作者元数据修正而改变，但文件内容和提交消息保持不变。
+
 ## COL-20260919-007 — GitHub 推送预检结果
 
 - 状态：BLOCKED
