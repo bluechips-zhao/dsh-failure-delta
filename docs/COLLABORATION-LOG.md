@@ -15,6 +15,23 @@
 - 当前待解决问题：上一轮记录仍显示项目处于 D0 文档阶段，源码、包和 D1/宿主证据待核实。
 - 未授权动作：GitHub 推送、npm 发布、公共 profile 安装、权限变更、删除及其他外部状态变更。
 
+## COL-20260919-004 — 持续推进至 GitHub 推送前
+
+- 状态：COMPLETED（达到外部推送确认边界）
+- 时间（Asia/Shanghai）：2026-09-19T00:52:38+08:00
+- 时间（UTC）：2026-09-18T16:52:38Z
+- 执行者：Codex/root
+- 关联记录：COL-20260919-004 STARTED
+- 工作项：按冻结文档从 D0 推进到 D1 SOURCE、D2 核心局部 `CORE_TESTED`，减少重复测试，并准备本地 Git 推送候选。
+- 文件归属：仅 I:\\Codex\\dsh-failure-delta；本轮新增/修改源码、测试、package、锁文件和文档均归 Codex/root；未修改其他项目、公共 profile 或远端。
+- 做了什么：固定 SHA `ddefc45fbc7f8e46dd73185e68295696d1297887` 官方只读 probe；实现命令识别、tsc/Vitest/pytest 受限 parser、HMAC 语义身份、摘录脱敏、有界 store、三档比较和 host-neutral canonical/observer adapter；补齐 package/TypeScript ESM、11 个核心测试、README/验收/测试计划/交接/官方基线；初始化本地 `main` 并创建首个提交。
+- 解决了什么：默认 parser 使用进程级随机 key 保证同一 epoch 跨运行可匹配；明确截断/未知/范围变化/实体/重复测试/缺失 passed 的降级；background/tool failure 不再伪造成功运行；store 按 startSeq 选基线并暴露淘汰健康计数；pack 产物不含源码测试和 node_modules。
+- 验证命令/退出码：`pnpm install --frozen-lockfile --ignore-scripts` 0；`pnpm typecheck` 0；`pnpm test` 0（2 files / 11 tests passed）；`pnpm build` 0；`node --input-type=module -e ...` exports smoke 0；`pnpm pack --dry-run` 0；Markdown 围栏检查 0；`git diff --cached --check` 0；工作树 `git status --porcelain` 为空。
+- 本地提交：`13b88840248df56b74736c5fcc7711603a2b20da`，`feat(core): add evidence-aware failure delta core`，本地作者为 `Codex <codex@localhost>`；仓库无 remote 配置。
+- 证据等级：D1 `SOURCE`；核心 `CORE_TESTED`（局部）；真实 DSH Host/PTC、runner 版本样本、provider TOCTOU、Client/Remote codec、Web/headless、fresh profile、跨平台和 PUBLISHED 仍未授予，见 `docs/UPSTREAM-BASELINE.md` 与 `docs/ACCEPTANCE-CRITERIA.md`。
+- 未执行：GitHub push、npm publish、远端仓库创建、公共 profile 安装、权限变更、删除、真实 DSH 组合测试和任何自动重跑/修复。
+- 下一步：向用户确认目标 GitHub remote、目标 branch 及是否推送当前 commit；得到明确授权后再执行发布前 preflight 和 push。
+
 ## COL-20260919-003 — 持续实施至 GitHub 推送前
 
 - 状态：STARTED
