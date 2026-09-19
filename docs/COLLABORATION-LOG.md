@@ -81,6 +81,29 @@
 - 未解决事项：当前环境没有可用 GitHub 登录/API 通道，无法代表用户创建远端仓库。
 - 下一步：用户在本机安装并登录 GitHub CLI，或提供可用的 GitHub 连接后，继续创建仓库并 push。
 
+## COL-20260919-009 — 创建公开 GitHub 仓库并推送
+
+- 状态：STARTED
+- 时间（Asia/Shanghai）：2026-09-19T09:35:05+08:00
+- 时间（UTC）：2026-09-19T01:35:05Z
+- 执行者：Codex/root
+- 关联记录：COL-20260919-008
+- 工作项：按用户最新指令将仓库设为公开，创建 GitHub 远端并推送当前 `main`。
+- 文件归属：仅 I:\\Codex\\dsh-failure-delta；不修改源码和 npm 发布状态。
+
+## COL-20260919-009 — 创建公开 GitHub 仓库并推送完成
+
+- 状态：COMPLETED
+- 时间（Asia/Shanghai）：2026-09-19T09:39:14+08:00
+- 时间（UTC）：2026-09-19T01:39:14Z
+- 执行者：Codex/root
+- 关联记录：COL-20260919-009 STARTED
+- 做了什么：使用已授权的 GitHub CLI，以账号 `bluechips-zhao` 创建公开仓库 `dsh-failure-delta`；配置 `origin` 并推送 `main`。
+- 解决了什么：公开 GitHub 远端已建立，当前本地与远端 `main` 已同步。
+- 验证命令/退出码：`gh repo view ... --json name,visibility,url,defaultBranchRef` 0，返回 `PUBLIC`、默认分支 `main` 和仓库 URL；`git ls-remote origin refs/heads/main` 0，远端 SHA 为 `05475aa93fb26c3afa6d67909f67e00dcb46dcdc`；`git status --short --branch` 显示 `main...origin/main`。
+- 未解决事项：无本次推送阻塞；Web/fresh profile/provider/PUBLISHED 等项目证据仍未获得，不因本次 GitHub 推送改变状态。
+- 下一步：将本次完成记录提交并推送到公开仓库。
+
 ## COL-20260919-007 — GitHub 推送预检结果
 
 - 状态：BLOCKED
