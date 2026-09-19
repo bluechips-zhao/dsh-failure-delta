@@ -32,6 +32,17 @@
 - 未执行：GitHub push、npm publish、远端仓库创建、公共 profile 安装、权限变更、删除、真实 DSH 组合测试和任何自动重跑/修复。
 - 下一步：向用户确认目标 GitHub remote、目标 branch 及是否推送当前 commit；得到明确授权后再执行发布前 preflight 和 push。
 
+## COL-20260919-005 — 修正本地提交作者元数据
+
+- 状态：STARTED
+- 时间（Asia/Shanghai）：2026-09-19T09:02:05+08:00
+- 时间（UTC）：2026-09-19T01:02:05Z
+- 执行者：Codex/root
+- 关联记录：COL-20260919-004
+- 工作项：按用户指令将本地提交作者名改为 `bluechips`；不推送、不配置远端。
+- 文件归属：仅 I:\\Codex\\dsh-failure-delta 的 Git 提交元数据和本协作记录。
+- 当前待解决问题：GitHub noreply 邮箱未由用户单独指定，本轮按 `bluechips@users.noreply.github.com` 处理；远端目标仍未确认。
+
 ## COL-20260919-003 — 持续实施至 GitHub 推送前
 
 - 状态：STARTED
