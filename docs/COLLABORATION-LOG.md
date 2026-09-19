@@ -41,7 +41,7 @@
 - 关联记录：COL-20260919-004
 - 工作项：按用户指令将本地提交作者名改为 `bluechips`；不推送、不配置远端。
 - 文件归属：仅 I:\\Codex\\dsh-failure-delta 的 Git 提交元数据和本协作记录。
-- 当前待解决问题：GitHub noreply 邮箱未由用户单独指定，本轮按 `bluechips@users.noreply.github.com` 处理；远端目标仍未确认。
+- 当前待解决问题：Git 提交对象的邮箱字段未由用户单独指定；项目文档不展示邮箱，远端目标仍未确认。
 
 ## COL-20260919-005 — 修正本地提交作者元数据
 
@@ -50,10 +50,33 @@
 - 时间（UTC）：2026-09-19T01:02:46Z
 - 执行者：Codex/root
 - 关联记录：COL-20260919-005 STARTED
-- 做了什么：重写本地三条提交的 author/committer 为 `bluechips <bluechips@users.noreply.github.com>`；未配置 remote，未执行 push。
+- 做了什么：重写本地三条提交的 author/committer 名称为 `bluechips`；Git 提交对象按格式保留必需的邮箱字段，但项目文档不展示邮箱；未配置 remote，未执行 push。
 - 解决了什么：移除此前的 `Codex <codex@localhost>` 提交身份，当前历史可按用户指定 GitHub 名称继续做 push 前检查。
-- 验证命令/退出码：`git rebase --root --exec ...` 0；`git log --format=...` 显示三条提交均为 bluechips；`git status --short --branch` 为空。
-- 未解决事项：noreply 邮箱是基于用户名的默认格式推定，若用户 GitHub 账号启用不同隐私邮箱，推送前仍可再 amend；GitHub remote、branch 和 push 授权仍待确认。
+- 验证命令/退出码：`git rebase --root --exec ...` 0；`git log --format=...` 显示三条提交名称均为 bluechips；`git status --short --branch` 为空。
+- 未解决事项：Git 提交对象仍需邮箱字段，项目文档不展示该字段；GitHub remote、branch 和 push 授权仍待确认。
+- 下一步：等待用户确认远端目标和 push。
+
+## COL-20260919-006 — 修正作者展示方式
+
+- 状态：STARTED
+- 时间（Asia/Shanghai）：2026-09-19T09:07:39+08:00
+- 时间（UTC）：2026-09-19T01:07:39Z
+- 执行者：Codex/root
+- 关联记录：COL-20260919-005
+- 工作项：按用户更正，将项目文档中的作者展示改为仅 `bluechips`，不展示邮箱地址。
+- 文件归属：仅 I:\\Codex\\dsh-failure-delta\\docs\\COLLABORATION-LOG.md。
+
+## COL-20260919-006 — 修正作者展示方式完成
+
+- 状态：COMPLETED
+- 时间（Asia/Shanghai）：2026-09-19T09:07:39+08:00
+- 时间（UTC）：2026-09-19T01:07:39Z
+- 执行者：Codex/root
+- 关联记录：COL-20260919-006 STARTED
+- 做了什么：移除协作日志中的具体邮箱地址，作者展示统一保留为 `bluechips`；未改动源码、未重复运行测试、未配置 remote、未执行 push。
+- 解决了什么：项目文档不再展示邮箱；说明 Git 提交对象仍受 Git 格式约束而需要邮箱字段。
+- 验证命令/退出码：`pwsh -NoProfile -Command "if (rg -n -i '[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}' docs README.md package.json) { exit 1 } else { exit 0 }"` 0；`git status --short --branch` 待提交变更仅为本日志。
+- 未解决事项：GitHub remote、目标 branch 和 push 授权仍待确认。
 - 下一步：等待用户确认远端目标和 push。
 
 ## COL-20260919-003 — 持续实施至 GitHub 推送前
